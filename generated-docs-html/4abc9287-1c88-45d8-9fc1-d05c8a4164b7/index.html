@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Генератор Документации Кода</title> <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Генератор Документации Кода</h1>
+
+        <p>Добро пожаловать в веб-приложение для автоматической генерации документации из исходного кода!</p>
+
+        
+        
+        
+
+        <h2>Выберите источник кода:</h2>
+
+        <form action="/generate" method="post" enctype="multipart/form-data">
+
+            <div class="form-group">
+                <label for="files">Загрузить файлы исходного кода (.java, .py и т.д.):</label>
+                <input type="file" id="files" name="files" multiple accept=".java,.py,.xml,.html,.css,.js,.ts,.c,.cpp,.h,.hpp,.cs"> </div>
+
+            <h2>Или</h2>
+
+            <div class="form-group">
+                <label for="githubUrl">Указать URL репозитория GitHub:</label>
+                <input type="url" id="githubUrl" name="githubUrl" placeholder="Например, https://github.com/user/repo">
+            </div>
+
+            <h2>Выберите формат документации:</h2>
+
+            <div class="form-group">
+                <label for="outputFormat">Формат:</label>
+                <select id="outputFormat" name="outputFormat" required> <option value="html">HTML (просмотр на сайте)</option>
+                    <option value="xml">XML (скачать файл)</option>
+                    <option value="pdf">PDF (скачать файл)</option> </select>
+            </div>
+
+            <button type="submit">Сгенерировать Документацию</button>
+
+        </form>
+
+        <div class="footer">
+             <p>&copy; <span>2025</span> Ваш Дипломный Проект</p>
+             <p><a href="/guide">Руководство по комментированию</a> | <a href="/result">Последний результат</a></p>
+             </div>
+
+    </div>
+</body>
+</html>

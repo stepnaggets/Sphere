@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Результат Генерации - Генератор Документации Кода</title> <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Результат Генерации</h1>
+
+        <div th:if="${errorMessage}" class="message error-message">
+            <p th:text="${errorMessage}"></p> </div>
+        <div th:if="${warningMessage}" class="message warning-message">
+            <p th:text="${warningMessage}"></p> </div>
+        <div th:if="${infoMessage}" class="message info-message">
+            <p th:text="${infoMessage}"></p> </div>
+
+        <p>
+            <a href="/">Вернуться в генератор</a> </p>
+
+        <div class="footer">
+             <p>&copy; <span th:text="${#dates.format(#dates.createNow(), 'yyyy')}">2023</span> Ваш Дипломный Проект</p>
+        </div>
+
+    </div>
+</body>
+</html>

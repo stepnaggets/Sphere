@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title th:text="${file.fileName} + ' - ' + ${project.projectName}"></title>
+    <link rel="stylesheet" href="css/style.css">
+    </head>
+<body>
+    <div class="container">
+         <h1 th:text="${file.fileName}">Имя Файла</h1>
+         <p>Язык: <span th:text="${file.language}">java</span></p>
+
+         <div th:each="class : ${file.classes}" class="class-doc">
+             <h3 th:text="${class.type} + ' ' + ${class.name}" class="class-name">Тип Класса ИмяКласса</h3>
+              <div th:if="${class.docBlock}">
+                  <div class="doc-description" th:text="${class.docBlock.mainDescription}">Основное описание класса из Javadoc.</div>
+
+                   <div th:if="${!class.docBlock.tags.empty}" class="doc-section">
+                       <h4>Теги класса:</h4>
+                        <ul>
+                            <li th:each="tagEntry : ${class.docBlock.tags.entrySet()}">
+                                 <span th:text="'@' + ${tagEntry.key} + ':'">@tag:</span>
+                                  <span th:each="value : ${tagEntry.value}" th:text="${value} + ' '">значение тега</span>
+                            </li>
+                        </ul>
+                   </div>
+              </div>
+             <div th:each="field : ${class.fields}" class="field-doc">
+                 <h4 th:text="${field.type} + ' ' + ${field.name}" class="field-name">Тип Поля ИмяПоля</h4>
+                  <div th:if="${field.docBlock}">
+                      <div class="doc-description" th:text="${field.docBlock.mainDescription}">Описание поля из Javadoc.</div>
+                       <div th:if="${!field.docBlock.tags.empty}" class="doc-section">
+                           <h4>Теги поля:</h4>
+                            <ul>
+                                <li th:each="tagEntry : ${field.docBlock.tags.entrySet()}">
+                                     <span th:text="'@' + ${tagEntry.key} + ':'">@tag:</span>
+                                      <span th:each="value : ${tagEntry.value}" th:text="${value} + ' '">значение тега</span>
+                                </li>
+                            </ul>
+                       </div>
+                  </div>
+             </div>
+             <div th:each="method : ${class.methods}" class="method-doc">
+                 <h4 class="method-name" th:text="${method.name}">ИмяМетода</h4>
+                  <p class="method-signature" th:text="${method.signature}">public void myMethod(String arg1, int arg2)</p>
+                  <div th:if="${method.docBlock}">
+                      <div class="doc-description" th:text="${method.docBlock.mainDescription}">Основное описание метода из Javadoc.</div>
+
+                      <div th:if="${!method.docBlock.parameterDocs.empty}" class="doc-section">
+                           <h4>Параметры:</h4>
+                            <ul>
+                                 <li th:each="param : ${method.docBlock.parameterDocs}" class="doc-param">
+                                     <span th:text="${param.name}">paramName</span> - <span th:text="${param.description}">Описание параметра.</span>
+                                </li>
+                            </ul>
+                      </div>
+
+                       <div th:if="${method.docBlock.returnDescription}" class="doc-section">
+                           <h4>Возвращаемое значение:</h4>
+                            <p th:text="${method.docBlock.returnDescription}"></p>
+                      </div>
+
+                       <div th:if="${!method.docBlock.tags.empty}" class="doc-section">
+                           <h4>Другие теги:</h4>
+                            <ul>
+                                <li th:each="tagEntry : ${method.docBlock.tags.entrySet()}"
+                                    th:if="${tagEntry.key != 'param' and tagEntry.key != 'return'}">
+                                     <span th:text="'@' + ${tagEntry.key} + ':'">@tag:</span>
+                                      <span th:each="value : ${tagEntry.value}" th:text="${value} + ' '">значение тега</span>
+                                </li>
+                            </ul>
+                       </div>
+                      </div>
+             </div>
+             </div>
+         <p>
+            <a href="index.html">Вернуться к списку файлов</a>
+        </p>
+    </div>
+</body>
+</html>

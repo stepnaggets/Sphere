@@ -1,0 +1,223 @@
+/* src/main/resources/static/doc-styles/style.css */
+
+/*
+ * Этот файл содержит стили для оформления *сгенерированной* HTML-документации.
+ * Он отличается от style.css в static/css, который стилизует сам интерфейс генератора.
+ */
+
+/* Базовые стили для тела страницы сгенерированной документации */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Приятный современный шрифт */
+    margin: 0; /* Убираем стандартные отступы */
+    padding: 20px; /* Внутренние отступы по краям */
+    background-color: #f4f7f6; /* Очень светло-серый фон */
+    color: #333; /* Темный цвет текста */
+    line-height: 1.6; /* Межстрочный интервал */
+}
+
+/* Контейнер для центрирования и ограничения ширины контента документации */
+.container {
+    max-width: 960px; /* Ширина может быть больше, чем для формы ввода */
+    margin: 20px auto; /* Центрируем блок */
+    padding: 30px; /* Внутренние отступы */
+    background-color: #fff; /* Белый фон для блока документации */
+    border-radius: 8px; /* Скругленные углы */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Легкая тень */
+}
+
+/* Заголовки для различных уровней документации (проект, файл, класс, метод/поле) */
+h1, h2, h3, h4 {
+     color: #0056b3; /* Темно-синий цвет */
+     margin-bottom: 15px; /* Отступ снизу */
+     margin-top: 25px; /* Отступ сверху для разделения секций */
+}
+
+h1 {
+    font-size: 2.2em; /* Заголовок уровня проекта/главной страницы */
+    border-bottom: 2px solid #eee; /* Разделительная линия */
+    padding-bottom: 10px;
+}
+
+h2 {
+    font-size: 1.8em; /* Заголовок уровня файла */
+    border-bottom: 1px solid #eee;
+    padding-bottom: 8px;
+}
+
+h3 {
+    font-size: 1.4em; /* Заголовок уровня класса */
+     color: #007bff; /* Более яркий синий */
+}
+
+h4 {
+    font-size: 1.2em; /* Заголовки для секций внутри элемента (Параметры, Возвращаемое значение) */
+    color: #555; /* Сероватый цвет */
+    margin-bottom: 8px;
+}
+
+/* Стили для параграфов */
+p {
+    margin-bottom: 15px;
+}
+
+/* Стили для ссылок внутри документации */
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Стили для основного описания элемента (класс, метод, поле) */
+.doc-description {
+    margin-bottom: 15px;
+    /* font-style: italic; /* Можно добавить курсив для выделения */
+    color: #444; /* Чуть светлее основного текста */
+}
+
+/* Стили для контейнеров документированных элементов (класс, метод, поле) */
+.class-doc, .method-doc, .field-doc {
+    border: 1px solid #e0e0e0; /* Тонкая серая рамка */
+    border-radius: 6px; /* Скругленные углы */
+    padding: 15px; /* Внутренние отступы */
+    margin-bottom: 20px; /* Отступ между блоками элементов */
+    background-color: #fdfdfd; /* Почти белый фон */
+}
+
+/* Стили для имен элементов (метод, поле) внутри их блоков */
+.method-name, .field-name {
+     font-size: 1.2em; /* Размер шрифта */
+     margin-top: 0; /* Убираем верхний отступ */
+     margin-bottom: 10px; /* Отступ снизу */
+     color: #333; /* Обычный темный цвет */
+}
+
+/* Стили для секций внутри DocBlock (Параметры, Возвращаемое значение, Теги) */
+.doc-section {
+    margin-top: 15px;
+    border-top: 1px dashed #eee; /* Пунктирная линия сверху */
+    padding-top: 15px;
+}
+
+/* Стили для списков внутри документации */
+ul {
+    padding-left: 20px; /* Отступ слева для маркеров списка */
+    margin-bottom: 15px;
+}
+
+li {
+    margin-bottom: 8px; /* Отступ между элементами списка */
+}
+
+/* Стили для списка параметров метода (@param) */
+.doc-param {
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+/* Стили для имени параметра */
+.doc-param span:first-child {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace; /* Моноширинный шрифт для имени параметра */
+    font-weight: bold;
+    color: #555;
+    margin-right: 8px;
+}
+/* Стили для описания параметра */
+.doc-param span:last-child {
+     font-weight: normal;
+     color: #333;
+}
+
+/* Стили для сигнатуры метода/функции */
+.method-signature {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    background-color: #f8f8f8; /* Светло-серый фон */
+    padding: 8px 12px; /* Внутренние отступы */
+    border-left: 3px solid #007bff; /* Синяя полоса слева */
+    border-radius: 0 4px 4px 0; /* Скругленные углы только справа */
+    display: block; /* Отображение как блочный элемент */
+    margin-bottom: 15px;
+    overflow-x: auto; /* Прокрутка по горизонтали, если сигнатура очень длинная */
+    white-space: pre-wrap; /* Перенос длинных строк */
+    word-wrap: break-word; /* Перенос слов, если они не умещаются */
+}
+
+/* Стили для блоков кода (pre) и встроенного кода (code) */
+pre {
+    background-color: #eee;
+    padding: 10px;
+    border-radius: 4px;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    /* Можно добавить легкий фон или рамку для встроенного кода */
+    /* background-color: #f0f0f0; */
+    /* padding: 2px 4px; */
+    /* border-radius: 3px; */
+}
+
+/* Стили для списка тегов */
+.doc-section ul li span:first-child {
+    font-weight: bold;
+    color: #555;
+    margin-right: 5px;
+}
+.doc-section ul li span:last-child {
+     font-weight: normal;
+     color: #333;
+}
+
+/* Стили для списка файлов на главной странице документации */
+ul.file-list {
+    list-style: none; /* Убираем стандартные маркеры */
+    padding: 0;
+}
+ul.file-list li {
+    margin-bottom: 10px;
+    border: 1px solid #eee;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+}
+ul.file-list li a {
+     font-weight: bold;
+     color: #0056b3;
+}
+
+
+/* Стили для ссылки "Вернуться в генератор" / "Вернуться к списку файлов" */
+.container p a[href^="index.html"],
+.container p a[href^="/"] {
+     display: inline-block;
+     margin-top: 20px;
+     padding: 8px 15px;
+     background-color: #f0f0f0;
+     border-radius: 4px;
+     color: #555;
+}
+
+.container p a[href^="index.html"]:hover,
+.container p a[href^="/"]:hover {
+     background-color: #e0e0e0;
+     text-decoration: none;
+}
+
+/* Медиа-запросы для адаптивности */
+@media (max-width: 768px) {
+    body {
+        padding: 10px; /* Уменьшаем отступы на маленьких экранах */
+    }
+    .container {
+        margin: 10px;
+        padding: 15px;
+    }
+    h1 { font-size: 1.8em; }
+    h2 { font-size: 1.4em; }
+    h3 { font-size: 1.2em; }
+    h4 { font-size: 1em; }
+}

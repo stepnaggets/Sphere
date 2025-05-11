@@ -1,0 +1,159 @@
+/* src/main/resources/static/css/style.css */
+
+/* Общие стили для всего тела страницы */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Приятный современный шрифт */
+    margin: 0; /* Убираем стандартные отступы у body */
+    padding: 0;
+    background-color: #e9ecef; /* Светло-серый фон для страницы */
+    color: #333; /* Темный цвет текста по умолчанию */
+    line-height: 1.6; /* Межстрочный интервал */
+}
+
+/* Стили для контейнера, центрирующего контент формы */
+.container {
+    max-width: 600px; /* Ограничиваем максимальную ширину формы */
+    margin: 40px auto; /* Центрируем блок по горизонтали и добавляем отступы сверху/снизу */
+    padding: 30px; /* Внутренние отступы */
+    background-color: #fff; /* Белый фон для контейнера */
+    border-radius: 8px; /* Скругленные углы */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Легкая тень */
+}
+
+/* Стили для заголовков */
+h1, h2, h3 {
+    color: #0056b3; /* Темно-синий цвет для заголовков */
+    margin-top: 0; /* Убираем верхний отступ у первого заголовка */
+    margin-bottom: 20px; /* Отступ снизу */
+}
+
+h1 {
+    font-size: 2em; /* Размер заголовка H1 */
+    border-bottom: 2px solid #eee; /* Разделительная линия */
+    padding-bottom: 10px; /* Отступ под линией */
+}
+
+h2 {
+    font-size: 1.6em;
+    margin-top: 30px; /* Отступ сверху, если не первый заголовок */
+}
+
+/* Стили для параграфов */
+p {
+    margin-bottom: 15px; /* Отступ снизу для параграфов */
+}
+
+/* Стили для ссылок */
+a {
+    color: #007bff; /* Синий цвет ссылок */
+    text-decoration: none; /* Убираем подчеркивание ссылок по умолчанию */
+}
+
+a:hover {
+    text-decoration: underline; /* Подчеркивание при наведении */
+}
+
+/* Стили для формы */
+form {
+    margin-top: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px; /* Отступ между группами полей формы */
+}
+
+/* Стили для меток полей формы (Label) */
+label {
+    display: block; /* Метка на отдельной строке */
+    margin-bottom: 8px; /* Отступ снизу */
+    font-weight: bold; /* Жирный текст метки */
+    color: #555; /* Сероватый цвет метки */
+}
+
+/* Стили для полей ввода (Input, Select, Textarea) */
+input[type="text"],
+input[type="url"],
+select {
+    width: 100%; /* Поле ввода занимает всю ширину контейнера */
+    padding: 10px; /* Внутренние отступы */
+    border: 1px solid #ccc; /* Серая рамка */
+    border-radius: 4px; /* Скругленные углы */
+    box-sizing: border-box; /* Учитываем padding и border в общей ширине */
+    font-size: 1em; /* Размер шрифта */
+}
+
+/* Стили для специфичного поля загрузки файлов */
+input[type="file"] {
+     /* Возможно, потребуется скрывать стандартное поле и стилизовать свою метку */
+     /* В простом случае стилизуем само поле */
+     width: 100%;
+     padding: 10px;
+     border: 1px solid #ccc;
+     border-radius: 4px;
+     box-sizing: border-box;
+     font-size: 1em;
+     background-color: #f8f9fa; /* Слегка отличающийся фон */
+     cursor: pointer; /* Курсор в виде руки */
+}
+
+/* Стили для кнопок */
+button,
+input[type="submit"] {
+    display: inline-block; /* Кнопка как строчно-блочный элемент */
+    background-color: #007bff; /* Синий фон кнопки */
+    color: white; /* Белый текст кнопки */
+    padding: 12px 20px; /* Внутренние отступы */
+    border: none; /* Убираем стандартную рамку */
+    border-radius: 5px; /* Скругленные углы */
+    cursor: pointer; /* Курсор в виде руки при наведении */
+    font-size: 1em; /* Размер шрифта */
+    transition: background-color 0.3s ease; /* Плавное изменение цвета при наведении */
+}
+
+/* Эффект при наведении на кнопку */
+button:hover,
+input[type="submit"]:hover {
+    background-color: #0056b3; /* Более темный синий при наведении */
+}
+
+/* Стили для сообщений (об ошибках, предупреждениях, информации) */
+.message {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.error-message {
+    background-color: #f8d7da; /* Светло-красный фон */
+    color: #721c24; /* Темно-красный текст */
+    border: 1px solid #f5c6cb; /* Красная рамка */
+}
+
+.warning-message {
+    background-color: #fff3cd; /* Светло-желтый фон */
+    color: #856404; /* Темно-желтый текст */
+    border: 1px solid #ffeeba; /* Желтая рамка */
+}
+
+.info-message {
+    background-color: #d1ecf1; /* Светло-голубой фон */
+    color: #0c5460; /* Темно-голубой текст */
+    border: 1px solid #bee5eb; /* Голубая рамка */
+}
+
+/* Простые стили для футера или нижней части страницы */
+.footer {
+    margin-top: 40px;
+    text-align: center;
+    font-size: 0.9em;
+    color: #666;
+}
+
+/* Медиа-запросы для адаптивности (опционально) */
+@media (max-width: 768px) {
+    .container {
+        margin: 20px; /* Уменьшаем боковые отступы на маленьких экранах */
+        padding: 20px;
+    }
+}
